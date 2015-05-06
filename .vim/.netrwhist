@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/jonathan.haenchen/Documents/AbsoluteManageWheeeeeee'
 let g:netrw_dirhist_2='/Users/jonathan.haenchen/.vim/.git'
+let g:netrw_dirhist_3='/Users/jonathan.haenchen/munki_client'
+let g:netrw_dirhist_4='/Users/jonathan.haenchen/.Trash'
+let g:netrw_dirhist_5='/Users/jonathan.haenchen/.git'
