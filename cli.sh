@@ -11,4 +11,4 @@ mv ~/cli_tools/.bash_profile ~/.bash_profile
 
 # move the .vimrc file into the appropriate place
 
-mv ~/cli_tools/,vim/.vimrc ~/.vimrc
+mv ~/cli_tools/.vim/.vimrc ~/.vimrc
