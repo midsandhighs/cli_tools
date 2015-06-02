@@ -9,11 +9,27 @@
 # When you git pull, you can run this to overwrite the older .vimrc
 #
 # On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
+# Move the .vimrc file
 
-# install Vundle:
+echo 'Moving .vimrc'
+sudo cp $HOME/cli_tools/.vimrc $HOME/.vimrc
 
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Verify and Install Vundle
 
-# move the .vimrc file into the appropriate place
+if [ -d "$HOME/.vim/bundle" ];
+    then
+    echo 'Vundle folder exists!'
+    else 
+    echo 'There is no Vundle!' 
+    git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+fi
 
-sudo cp ~/cli_tools/.vimrc ~/.vimrc
+# Install Vundle Plugins
+
+vim +PluginInstall +qall
+
+#SUCCESS!
+
+echo 'Vundles installed.'
+
+

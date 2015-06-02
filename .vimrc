@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
-Plugin 'darkfink/vim-plist'
+Plugin 'darfink/vim-plist'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
