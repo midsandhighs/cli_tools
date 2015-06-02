@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugins with GitHub repos
 Plugin 'tpope/vim-ragtag'
-Plugin 'sjl/badwolf'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'darkfink/vim-plist'
@@ -43,7 +42,6 @@ filetype plugin indent on    " required
 "
 "
 " set the colorscheme
-colorscheme badwolf
 
 " enable syntax processing
 syntax enable
