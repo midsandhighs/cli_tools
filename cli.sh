@@ -14,22 +14,25 @@
 echo 'Moving .vimrc'
 sudo cp $HOME/cli_tools/.vimrc $HOME/.vimrc
 
-# Verify and Install Vundle
+# Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
 if [ -d "$HOME/.vim/bundle" ];
     then
-    echo 'Vundle folder exists!'
-    else 
-    echo 'There is no Vundle!' 
-    git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+        echo 'Vundle folder exists!'
+        sleep 5s
+        vim +PluginInstall +qall
+        echo 'Vundles updated.'
+else    
+    
+        echo 'Vundle is not installed! '
+        sleep 10s
+        echo 'Cloning Vundle.vim'  
+        git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+        sleep 5s
+        echo 'Vundle Installed!'
+        sleep 3s 
+        vim +PluginInstall +qall
+        echo 'Vundles updated.'
 fi
-
-# Install Vundle Plugins
-
-vim +PluginInstall +qall
-
-#SUCCESS!
-
-echo 'Vundles installed.'
 
 
