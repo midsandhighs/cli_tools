@@ -1,10 +1,7 @@
 #!/bin/bash
 
-#The beginning of a simple bash script to simplify my life re: joining IRC
+# The beginning of a simple bash script to simplify my life re: joining IRC
 #
-#read output, if 1 thing, then, if next thing, then 
+# I need to figure out to get bash to parse this output of screen, then send a separate command
 #
-
-
-# Describe WTF is goin:q
-
+# I'm unsure if an array is necessary; &> does not seem to properly output, so I am unsure is screen is using stderr/stdout or not
