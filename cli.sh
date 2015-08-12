@@ -35,4 +35,7 @@ else
         echo 'Vundles updated.'
 fi
 
-
+# TO DO: .bashrc! Let's get that in here. 
+#
+# Maybe use the uname command with a a regexp to see if the system is OS X
+# or Linux and choose whether to pull .bash_profile or .bashrc
