@@ -11,7 +11,10 @@ My vim customization file, including Vundles. Verifed working on Debian Wheezy, 
 * vim-fugitive: Git status in vim (this is less  
 
 ###.bash_profile:   
-placeholder for a bash profile, but it seems to be too subjective per machine. keeping it here until I decide what to do with it. Currently for OS X machines. Not even going to go there regarding .bashrc files and whether or not I need to get a tcsh thing going   
+Currently, this only has my preferred way to ls, and the path for munki commands. some ideas:
+* 'cd' behavior changes; trailing dots for navigation inside file systems?
+* ssh aliases for servers? (could we script this based on whether or not on a private connection?)   
+
 ####Future looking
 * tcsh? 
 * do I need to put a .bashrc in here?
