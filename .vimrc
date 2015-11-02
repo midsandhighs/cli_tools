@@ -17,6 +17,7 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'darfink/vim-plist'
+Plugin 'taglist.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
