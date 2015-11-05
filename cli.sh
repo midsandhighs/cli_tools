@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Fun little tool for doing some preliminary setup for using vim 
+# Fun little tool for doing some preliminary setup for customizing my CLI environment
 # 
+# - move the .bash_profile and .bashrc
 # - move the .vimrc file 
 # - Verify Vundle is installed
 # - Install Vundle if not
@@ -15,6 +16,7 @@ echo 'Moving .vimrc'
 sudo cp $HOME/cli_tools/.vimrc $HOME/.vimrc
 
 # Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
+
 
 if [ -d "$HOME/.vim/bundle" ];
     then
@@ -35,7 +37,4 @@ else
         echo 'Vundles updated.'
 fi
 
-# TO DO: .bashrc! Let's get that in here. 
-#
-# Maybe use the uname command with a a regexp to see if the system is OS X
-# or Linux and choose whether to pull .bash_profile or .bashrc
+
