@@ -2,15 +2,19 @@
 
 # Fun little tool for doing some preliminary setup for customizing my CLI environment
 # 
-# - move the .bash_profile and .bashrc
+# - move the .bash_profile
 # - move the .vimrc file 
 # - Verify Vundle is installed
 # - Install Vundle if not
 # - run the command line Vundle tool to install plugins
-# When you git pull, you can run this to overwrite the older .vimrc
+# 
+#When you git pull, you can run this to overwrite the older .vimrc
 #
 # On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
 # Move the .vimrc file
+
+echo 'Moving .bash_profile'
+cp $HOME/cli_tools/.bash_profile $HOME/.bash_profile
 
 echo 'Moving .vimrc'
 sudo cp $HOME/cli_tools/.vimrc $HOME/.vimrc
