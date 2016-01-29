@@ -14,13 +14,20 @@
 # Move the .vimrc file
 
 echo 'Moving .bash_profile'
+sleep 3s
 cp $HOME/cli_tools/.bash_profile $HOME/.bash_profile
 
+echo 'Moving .bashrc'
+sleep 3s
+cp $HOME/cli_tools/.bashrc $HOME/.bashrc
+
 echo 'Moving .vimrc'
-sudo cp $HOME/cli_tools/.vimrc $HOME/.vimrc
+sleep 3s
+cp $HOME/cli_tools/.vimrc $HOME/.vimrc
+
+source $HOME/.bash_profile
 
 # Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
-
 
 if [ -d "$HOME/.vim/bundle" ];
     then

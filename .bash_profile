@@ -27,10 +27,9 @@ export PATH="/usr/local/sbin:$PATH"
 alias ls='ls -lFGa'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
+alias :q='exit'
 
 # 4. Dumb tricks/misc/aliases
-alias midsnode='mosh --ssh="ssh -p 5003" midsandhighs@midsandhighs.com' 
-alias midsbsd='ssh -Av midsandhighs@192.34.62.106'
+alias midsnode='ssh -Av midsandhighs@midsandhighs.com' 
 alias graceful='ssh -Av -p 2222 jonathanh@graceful.hou.flightaware.com'
-
 
