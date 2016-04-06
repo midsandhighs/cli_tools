@@ -31,5 +31,6 @@ alias :q='exit'
 
 # 4. Dumb tricks/misc/aliases
 alias midsnode='ssh -Av midsandhighs@midsandhighs.com' 
-alias graceful='ssh -Av -p 2222 jonathanh@graceful.hou.flightaware.com'
+# alias graceful='ssh -Av -p 2222 jonathanh@graceful.hou.flightaware.com'
+# This Breaks graceful on graceful :( 
 

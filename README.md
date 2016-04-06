@@ -2,13 +2,16 @@
 
 The repo for tools to make my life easier in multiple environments.
 ###.vimrc  
-My vim customization file, including Vundles. Verifed working on Debian Wheezy, OS X 10.9, 10.10, and 10,11, FreeBSD 10.1 Release  
+My vim customization file, including Vundles. Verifed working on 
+* Debian Wheezy, Jessie
+* OS X 10.9, 10.10, and 10,11
+* FreeBSD 10.1, 10.2
 
 ####Vundles
 * vim-plist: for plist files
 * vim-ragtag: for web files
 * vim-markdown: for markdown files
-* vim-fugitive: Git status in vim (this is less  
+* vim-fugitive: Git status in vim (this is less important) 
 
 ###.bash_profile:   
 Currently, this only has my preferred way to ls, and the path for munki commands. some ideas:
