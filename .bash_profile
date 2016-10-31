@@ -28,9 +28,12 @@ alias ls='ls -lFGa'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
+
 # graceful specific
 alias vhost='cd /vhosts/midsandhighs/fa_web'
 alias playpen='cd /vhosts/midsandhighs/fa_web/webroot/playpen'
+alias asdidata='psql -U jonathanh -h asdidata.db.flightaware.com -d asdidata'
+
 # 4. Dumb tricks/misc/aliases
 alias midsnode='ssh -Av midsandhighs@midsandhighs.com' 
 # alias graceful='ssh -Av -p 2222 jonathanh@graceful.hou.flightaware.com'
