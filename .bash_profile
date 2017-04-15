@@ -30,5 +30,4 @@ alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
 
 # 4. Links for ssh 
-alias midsnode='ssh -A midsandhighs@midsandhighs.com' 
-
+alias midsnode='mosh midsandhighs@midsandhighs.com' 
