@@ -4,8 +4,8 @@ The repo for tools to make my life easier in multiple environments.
 ###.vimrc  
 My vim customization file, including Vundles. Verifed working on 
 * Debian Wheezy, Jessie
-* OS X 10.9, 10.10, and 10,11
-* FreeBSD 10.1, 10.2
+* OS X 10.9, 10.10, and 10,11, 12
+* FreeBSD 10.1, 10.2, 10.3, 11 Release.
 
 ####Vundles
 * vim-plist: for plist files
@@ -24,6 +24,9 @@ Currently, this only has my preferred way to ls, and the path for munki commands
 
 ###cli.sh:
 a dumb script to install my .vimrc and pull Vundles on any BSD system.  
+
+* needs updated for bash path
+
 ####Future looking 
 * moving the .bashrc? regexp? better exploration is commented out in the script
 
