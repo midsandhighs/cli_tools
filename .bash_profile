@@ -24,7 +24,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # 3. File Navigation
-alias ls='ls -lFGa'
+alias ls='ls -lFG'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
