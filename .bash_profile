@@ -29,5 +29,6 @@ alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
 
-# 4. Links for ssh 
+#` 4. Links for ssh 
 alias midsnode='mosh midsandhighs@midsandhighs.com' 
+alias asdidata='psql -U jonathanh -d asdidata -h asdidata.db.flightaware.com'
