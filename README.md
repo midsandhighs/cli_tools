@@ -19,7 +19,7 @@ Contains aliases for navigation some $PATH work (macOS specific)
 .bash_profile calls .bashrc at the beginning for showing pwd and git status if it is a branch.
 
 #### Future looking
-* Shell agnositc? Compatibility with sh? tcsh? different bash paths? 
+* Shell agnostic? Compatibility with sh? tcsh? different bash paths? 
 * tmux/mosh one way in for IRC access
 
 ### cli.sh:
