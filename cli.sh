@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Fun little tool for doing some preliminary setup for customizing my CLI environment
 # 
