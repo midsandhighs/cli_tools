@@ -18,6 +18,8 @@ Contains aliases for navigation some $PATH work (macOS specific)
 
 .bash_profile calls .bashrc at the beginning for showing pwd and git status if it is a branch.
 
+.bashrc also contains Tiny Care Terminal values now.
+
 #### Future looking
 * Shell agnostic? Compatibility with sh? tcsh? different bash paths? 
 * tmux/mosh one way in for IRC access
@@ -29,11 +31,12 @@ a dumb script to install my .vimrc and pull Vundles on any BSD system. It also a
 
 ## The Attic
 
-### irc.sh:   
-a dumber script that I hope I can turn into a really simply way to launch my IRSSI screen regardless of whether the screen is attached or detached.  
-#### Current blockers:
-* Need to figure out how to parse screen output in bash
-* or maybe a python script?
+
+~~### irc.sh:~~   
+~~a dumber script that I hope I can turn into a really simply way to launch my IRSSI screen regardless of whether the screen is attached or detached.~~  
+using up arrow to recall a tmux connect is easy enough.
+
+### Current blockers:
 
 Who even knows, this document is evolving as all things do.
 
