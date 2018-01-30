@@ -1,5 +1,9 @@
 # A .bashrc attempt
 
+# add etcher cli
+
+export PATH="$PATH:/opt/etcher"
+
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -48,3 +52,16 @@ function parse_git_dirty {
 }
 
 export PS1="[\[\e[32m\]\w\[\e[m\]]\`parse_git_branch\`[\e[31m\]\@\[\e[m\]]$ "
+
+# Tiny Care Terminal variables.
+
+export TTC_GITBOT='gitlog'
+export TTC_WEATHER='Houston'
+export TTC_REPOS='~/git'
+export TTC_APIKEYS=false
+export TTC_SAY_BOX='panda'
+export TTC_CELSIUS=false
+export TTC_UPDATE_INTERVAL=5
+export TTC_TERMINAL_TITLE=false
+export TTC_REPOS_DEPTH=2
+
