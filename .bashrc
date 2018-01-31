@@ -62,6 +62,6 @@ export TTC_APIKEYS=false
 export TTC_SAY_BOX='panda'
 export TTC_CELSIUS=false
 export TTC_UPDATE_INTERVAL=5
-export TTC_TERMINAL_TITLE=false
-export TTC_REPOS_DEPTH=2
+export TTC_TERMINAL_TITLE=true
+export TTC_REPOS_DEPTH=3
 
