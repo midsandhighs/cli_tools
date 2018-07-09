@@ -20,6 +20,16 @@ Contains aliases for navigation some $PATH work (macOS specific)
 
 .bashrc also contains Tiny Care Terminal values now.
 
+### pingtimestamp.sh
+
+This is dumb and runs ping with an audio queue when it doesn't pong and with a timestamp. If you need this I'm sorry. 
+
+Use like 
+
+`./pingtimestamp.sh $site`
+
+yay.
+
 #### Future looking
 * Shell agnostic? Compatibility with sh? tcsh? different bash paths? 
 * tmux/mosh one way in for IRC access
@@ -30,7 +40,6 @@ a dumb script to install my .vimrc and pull Vundles on any BSD system. It also a
 #### Future looking 
 
 ## The Attic
-
 
 ~~### irc.sh:~~   
 ~~a dumber script that I hope I can turn into a really simply way to launch my IRSSI screen regardless of whether the screen is attached or detached.~~  
