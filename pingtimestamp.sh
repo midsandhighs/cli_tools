@@ -1,6 +1,8 @@
 #!/bin/sh
 
+#set -ex
 
+#Use like ./pingstimestamp.sh $site
 
 echo $1
 
