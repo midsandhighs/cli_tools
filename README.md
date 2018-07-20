@@ -1,6 +1,7 @@
 # cli tools
 
 The repo for tools to make my life easier in multiple environments.
+
 ### .vimrc  
 My vim customization file, including Vundles. Verifed working on 
 * Debian Wheezy, Jessie
@@ -30,9 +31,9 @@ Use like
 
 yay.
 
-#### Future looking
-* Shell agnostic? Compatibility with sh? tcsh? different bash paths? 
-* tmux/mosh one way in for IRC access
+### crontabs.sh
+
+Get's a list of every user's crontab on a FreeBSD machine. Needs sudo. 
 
 ### cli.sh:
 a dumb script to install my .vimrc and pull Vundles on any BSD system. It also attempts to move .bashrc and .bash_profile into place, then `source .bash_profile` to get the changes
