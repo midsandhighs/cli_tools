@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Fun little tool for doing some preliminary setup for customizing my CLI environment
+# Ttool for doing some preliminary setup for customizing my CLI environment
 # 
 # - move the .bash_profile
 # - move the .vimrc file 
@@ -15,15 +15,15 @@
 
 echo 'Moving .bash_profile'
 sleep 3s
-cp $HOME/cli_tools/.bash_profile $HOME/.bash_profile
+cp .bash_profile $HOME/.bash_profile
 
 echo 'Moving .bashrc'
 sleep 3s
-cp $HOME/cli_tools/.bashrc $HOME/.bashrc
+cp .bashrc $HOME/.bashrc
 
 echo 'Moving .vimrc'
 sleep 3s
-cp $HOME/cli_tools/.vimrc $HOME/.vimrc
+cp .vimrc $HOME/.vimrc
 
 source $HOME/.bash_profile
 
