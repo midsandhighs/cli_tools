@@ -2,6 +2,8 @@
 
 The repo for tools to make my life easier in multiple environments.
 
+## Config files
+
 ### .vimrc  
 My vim customization file, including Vundles. Verifed working on 
 * Debian Wheezy, Jessie
@@ -21,6 +23,14 @@ Contains aliases for navigation some $PATH work (macOS specific)
 
 .bashrc also contains Tiny Care Terminal values now.
 
+### .gitconfig
+Configuration for git type things. 
+
+## Scripts
+
+### cli.sh:
+a script to install my .vimrc and pull Vundles on any BSD system. It also attempts to move .bashrc and .bash_profile into place, then `source .bash_profile` to get the changes. It also puts my global .gitconfig in place. 
+
 ### pingtimestamp.sh
 
 This is dumb and runs ping with an audio queue when it doesn't pong and with a timestamp. If you need this I'm sorry. 
@@ -34,17 +44,6 @@ yay.
 ### crontabs.sh
 
 Get's a list of every user's crontab on a FreeBSD machine. Needs sudo. 
-
-### cli.sh:
-a dumb script to install my .vimrc and pull Vundles on any BSD system. It also attempts to move .bashrc and .bash_profile into place, then `source .bash_profile` to get the changes
-
-#### Future looking 
-
-## The Attic
-
-~~### irc.sh:~~   
-~~a dumber script that I hope I can turn into a really simply way to launch my IRSSI screen regardless of whether the screen is attached or detached.~~  
-using up arrow to recall a tmux connect is easy enough.
 
 ### Current blockers:
 

@@ -14,16 +14,20 @@
 # Move the .vimrc file
 
 echo 'Moving .bash_profile'
-sleep 3s
+sleep 1s
 cp .bash_profile $HOME/.bash_profile
 
 echo 'Moving .bashrc'
-sleep 3s
+sleep 1s
 cp .bashrc $HOME/.bashrc
 
 echo 'Moving .vimrc'
-sleep 3s
+sleep 1s
 cp .vimrc $HOME/.vimrc
+
+echo 'Moving .gitconfig'
+sleep 1s
+cp .gitconfig $HOME/.gitconfig
 
 source $HOME/.bash_profile
 
