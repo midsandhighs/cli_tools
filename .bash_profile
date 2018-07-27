@@ -15,7 +15,7 @@
 
 # 1. Sourcing .bashrc if present, other wise, .bash_profile
 if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
+    . ~/.bashrc
 fi
 
 # 2. Paths

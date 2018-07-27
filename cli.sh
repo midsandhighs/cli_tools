@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# Ttool for doing some preliminary setup for customizing my CLI environment
+#set -ex
+
+# Script for doing some preliminary setup for customizing my CLI environment
 # 
 # - move the .bash_profile
 # - move the .vimrc file 
@@ -14,22 +16,22 @@
 # Move the .vimrc file
 
 echo 'Moving .bash_profile'
-sleep 1s
+sleep 1
 cp .bash_profile $HOME/.bash_profile
 
 echo 'Moving .bashrc'
-sleep 1s
+sleep 1
 cp .bashrc $HOME/.bashrc
 
 echo 'Moving .vimrc'
-sleep 1s
+sleep 1
 cp .vimrc $HOME/.vimrc
 
 echo 'Moving .gitconfig'
-sleep 1s
+sleep 1
 cp .gitconfig $HOME/.gitconfig
 
-source $HOME/.bash_profile
+. $HOME/.bash_profile
 
 # Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
