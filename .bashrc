@@ -57,9 +57,9 @@ export PS1="[\[\e[32m\]\w\[\e[m\]]\`parse_git_branch\`[\e[31m\]\@\[\e[m\]]$ "
 
 export TTC_GITBOT='gitlog'
 export TTC_WEATHER='Houston'
-export TTC_REPOS='~/git'
+export TTC_REPOS='/Users/jonathan.haenchen/git'
 export TTC_APIKEYS=false
-export TTC_SAY_BOX='panda'
+export TTC_SAY_BOX='yeoman'
 export TTC_CELSIUS=false
 export TTC_UPDATE_INTERVAL=5
 export TTC_TERMINAL_TITLE=true
