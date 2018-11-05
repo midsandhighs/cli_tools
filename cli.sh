@@ -32,8 +32,13 @@ cp .gitconfig $HOME/.gitconfig
 echo 'Moving .tmux.conf'
 cp .vimrc $HOME/.tmux.conf
 
+echo 'Moving .zshrc'
+cp .zshrc $HOME/.zshrc
+
 
 . $HOME/.bash_profile
+
+source $HOME/.zshrc
 
 # Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 

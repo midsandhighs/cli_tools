@@ -4,12 +4,8 @@
 #
 # 1. Sourcing .bashrc if .bash_profile is not necessarily available 
 #   - Allows me to put this in multiple systems and create some useful tricks
-# 2. Paths
-#   - munki and associated tools
-#   - /usr/local/bin
-#   - /usr/local/sbin <- to keep homebrew from yelling at me
-# 3. Navigation
-# 4. Dumb tricks/miscellaneous
+# 2. Navigation
+# 3. Dumb tricks/miscellaneous
 #
 #---------------------------------------------------------------------------
 
@@ -18,12 +14,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# 2. Paths
-export PATH="/usr/local/munki:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-# 3. File Navigation
+# 2. File Navigation
 alias ls='ls -lFGha'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though

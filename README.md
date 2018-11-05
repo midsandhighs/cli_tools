@@ -5,10 +5,7 @@ The repo for tools to make my life easier in multiple environments.
 ## Config files
 
 ### .vimrc  
-My vim customization file, including Vundles. Verifed working on 
-* Debian Wheezy, Jessie
-* macOS - 10.9 to current.
-* FreeBSD 10.1, 10.2, 10.3, 11 Release.
+My vim customization file, including Vundles. macOS, Debian, Ubuntu and FreeBSD tested
 
 #### Vundles
 * vim-plist: for plist files
@@ -17,7 +14,6 @@ My vim customization file, including Vundles. Verifed working on
 * vim-fugitive: Git status in vim (this is less important) 
 
 ### .bash_profile and .bashrc   
-Contains aliases for navigation some $PATH work (macOS specific)
 
 .bash_profile calls .bashrc at the beginning for showing pwd and git status if it is a branch.
 
@@ -25,6 +21,13 @@ Contains aliases for navigation some $PATH work (macOS specific)
 
 ### .gitconfig
 Configuration for git type things. 
+
+### .tmux.config
+Config for tmux
+
+### .zshrc
+
+making zsh useful on macOS
 
 ## Scripts
 
