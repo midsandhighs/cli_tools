@@ -24,11 +24,9 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 # 3. File Navigation
-alias ls='ls -lFG'
+alias ls='ls -lFGha'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
 
-#` 4. Links for ssh 
-alias midsnode='mosh midsandhighs@midsandhighs.com' 
-alias asdidata='psql -U jonathanh -d asdidata -h asdidata.db.flightaware.com'
+

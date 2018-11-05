@@ -15,6 +15,8 @@
 # On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
 # Move the .vimrc file
 
+
+
 echo 'Moving .bash_profile'
 cp .bash_profile $HOME/.bash_profile
 
@@ -26,6 +28,10 @@ cp .vimrc $HOME/.vimrc
 
 echo 'Moving .gitconfig'
 cp .gitconfig $HOME/.gitconfig
+
+echo 'Moving .tmux.conf'
+cp .vimrc $HOME/.tmux.conf
+
 
 . $HOME/.bash_profile
 
