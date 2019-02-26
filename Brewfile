@@ -1,74 +1,47 @@
-
-# tap repositories and their packages
-
-tap homebrew/core
-brew afflib
-brew augeas
-brew autoconf
-brew boost
-brew cmake
-brew doxygen
-brew gdbm
-brew gettext
-brew gflags
-brew git
-brew glog
-brew htop
-brew icu4c
-brew libarchive
-brew libevent
-brew libewf
-brew libmagic
-brew libpq
-brew librdkafka
-brew lldpd
-brew lz4
-brew lzlib
-brew mas
-brew ncurses
-brew node
-brew node@6
-brew openssl
-brew pcre2
-brew pkg-config
-brew python@2
-brew rapidjson
-brew rbenv
-brew rbenv-chefdk
-brew readline
-brew rocksdb
-brew ruby-build
-brew screenfetch
-brew sleuthkit
-brew snappy
-brew sqlite
-brew ssdeep
-brew thrift
-brew tig
-brew tmux
-brew xz
-brew yara
-brew zsh
-brew zstd
-
-tap homebrew/bundle
-
-tap homebrew/cask
-cask caffeine
-cask google-chrome
-cask osxfuse
-cask vlc
-cask iterm2
-
-tap crisidev/chunkwm
-brew chunkwm
-
-tap rcmdnk/file
-brew brew-file
-
-# Other Cask applications
-cask firefox
-cask java
-cask powershell
-
-appstore 497799835 Xcode (10.0)
+tap "crisidev/chunkwm"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "koekeishiya/formulae"
+tap "rcmdnk/file"
+cask "java"
+brew "docker"
+brew "docker-machine"
+brew "git"
+brew "htop"
+brew "mas"
+brew "node"
+brew "node@6"
+brew "osquery"
+brew "postgresql"
+brew "rbenv-chefdk"
+brew "rtv"
+brew "screenfetch"
+brew "speedtest-cli"
+brew "tig"
+brew "tmux"
+brew "zsh"
+brew "koekeishiya/formulae/chunkwm"
+brew "rcmdnk/file/brew-file"
+cask "caffeine"
+cask "firefox"
+cask "google-chrome"
+cask "osxfuse"
+cask "powershell"
+cask "virtualbox"
+cask "vlc"
+mas "Apple Configurator 2", id: 1037126344
+mas "Deliveries", id: 924726344
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Microsoft Remote Desktop", id: 715768417
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 409203825
+mas "OmniFocus", id: 1346203938
+mas "OmniFocus", id: 1346203938
+mas "Pages", id: 409201541
+mas "Remote Desktop", id: 409907375
+mas "Telephone", id: 406825478
+mas "Tweetbot", id: 1384080005
+mas "Wunderlist", id: 410628904
+mas "Xcode", id: 497799835
