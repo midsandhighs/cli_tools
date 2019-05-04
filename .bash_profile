@@ -15,7 +15,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # 2. File Navigation
-alias ls='ls -lFGha'
+alias ls='ls -lFha'
 alias cd..='cd ../' # Theoretically this will let me navigate backwards
 alias ..='cd ../'   # This may be quicker though
 alias :q='exit'
