@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#set -ex
+set -ex
 
 # Script for doing some preliminary setup for customizing my CLI environment
 # 
@@ -36,9 +36,9 @@ echo 'Moving .zshrc'
 cp .zshrc $HOME/.zshrc
 
 
-. $HOME/.bash_profile
+# . $HOME/.bash_profile
 
-source $HOME/.zshrc
+# source $HOME/.zshrc
 
 # Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
