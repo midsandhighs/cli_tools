@@ -16,31 +16,29 @@ set -ex
 # Move the .vimrc file
 
 
+echo 'Setting up bash'
+cp $HOME/cli_tools/configs/bashprofile $HOME/.bash_profile
+cp $HOME/cli_tools/configs/bashrc $HOME/.bashrc
 
-echo 'Moving .bash_profile'
-cp .bash_profile $HOME/.bash_profile
+echo 'Setting up vim'
+cp $HOME/cli_tools/configs/vimrc $HOME/.vimrc
 
-echo 'Moving .bashrc'
-cp .bashrc $HOME/.bashrc
+echo 'Configuring git'
+cp $HOME/cli_tools/configs/gitconfig $HOME/.gitconfig
 
-echo 'Moving .vimrc'
-cp .vimrc $HOME/.vimrc
+echo 'Tmux Config'
+cp $HOME/cli_tools/configs/tmux $HOME/.tmux.conf
 
-echo 'Moving .gitconfig'
-cp .gitconfig $HOME/.gitconfig
-
-echo 'Moving .tmux.conf'
-cp .vimrc $HOME/.tmux.conf
-
-echo 'Moving .zshrc'
-cp .zshrc $HOME/.zshrc
+echo 'Installing ZSH'
+sudo apt install zsh 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+cp $HOME/cli_tools/configs/zshrc $HOME/.zshrc
 
 
-# . $HOME/.bash_profile
+. $HOME/.bash_profile
+source $HOME/.zshrc
 
-# source $HOME/.zshrc
-
-# Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
+#  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
 if [ -d "$HOME/.vim/bundle" ];
     then
