@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+# set -ex
 
 # Script for doing some preliminary setup for customizing my CLI environment
 # 
