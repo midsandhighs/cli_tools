@@ -30,7 +30,8 @@ echo 'Tmux Config'
 cp $HOME/cli_tools/configs/tmux $HOME/.tmux.conf
 
 echo 'Installing ZSH'
-sudo apt install zsh 
+# it might not be wise to have this here! 
+# sudo apt install zsh 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp $HOME/cli_tools/configs/zshrc $HOME/.zshrc
 
