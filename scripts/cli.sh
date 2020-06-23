@@ -17,23 +17,23 @@
 
 
 echo 'Setting up bash'
-cp $HOME/cli_tools/configs/bashprofile $HOME/.bash_profile
-cp $HOME/cli_tools/configs/bashrc $HOME/.bashrc
+cp ../configs/bashprofile $HOME/.bash_profile
+cp ../configs/bashrc $HOME/.bashrc
 
 echo 'Setting up vim'
-cp $HOME/cli_tools/configs/vimrc $HOME/.vimrc
+cp ../configs/vimrc $HOME/.vimrc
 
 echo 'Configuring git'
-cp $HOME/cli_tools/configs/gitconfig $HOME/.gitconfig
+cp ../configs/gitconfig $HOME/.gitconfig
 
 echo 'Tmux Config'
-cp $HOME/cli_tools/configs/tmux $HOME/.tmux.conf
+cp ../configs/tmux $HOME/.tmux.conf
 
 echo 'Installing ZSH'
 # it might not be wise to have this here! 
 # sudo apt install zsh 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp $HOME/cli_tools/configs/zshrc $HOME/.zshrc
+cp ../configs/zshrc $HOME/.zshrc
 
 
 . $HOME/.bash_profile
