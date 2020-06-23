@@ -36,8 +36,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 cp ../configs/zshrc $HOME/.zshrc
 
 
-. $HOME/.bash_profile
-source $HOME/.zshrc
+# . $HOME/.bash_profile
+# source $HOME/.zshrc
 
 #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
