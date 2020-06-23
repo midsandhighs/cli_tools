@@ -11,24 +11,14 @@ brew "git"
 brew "htop"
 brew "mas"
 brew "node"
-brew "node@6"
-brew "osquery"
-brew "postgresql"
-brew "rbenv-chefdk"
-brew "rtv"
-brew "screenfetch"
 brew "speedtest-cli"
 brew "tig"
 brew "tmux"
-brew "zsh"
-brew "koekeishiya/formulae/chunkwm"
-brew "rcmdnk/file/brew-file"
 cask "caffeine"
 cask "firefox"
 cask "google-chrome"
 cask "osxfuse"
 cask "powershell"
-cask "virtualbox"
 cask "vlc"
 mas "Apple Configurator 2", id: 1037126344
 mas "Deliveries", id: 924726344
@@ -43,5 +33,4 @@ mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
 mas "Telephone", id: 406825478
 mas "Tweetbot", id: 1384080005
-mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835
