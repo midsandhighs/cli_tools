@@ -5,6 +5,7 @@ tap "homebrew/core"
 tap "koekeishiya/formulae"
 tap "rcmdnk/file"
 cask "java"
+cask "1Password"
 brew "docker"
 brew "docker-machine"
 brew "git"
@@ -20,6 +21,7 @@ cask "google-chrome"
 cask "osxfuse"
 cask "powershell"
 cask "vlc"
+cask "vmware-fusion"
 mas "Apple Configurator 2", id: 1037126344
 mas "Deliveries", id: 924726344
 mas "Keynote", id: 409183694
@@ -34,3 +36,4 @@ mas "Remote Desktop", id: 409907375
 mas "Telephone", id: 406825478
 mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
+mas "Bear", id: 1016366447
