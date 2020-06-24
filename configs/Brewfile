@@ -4,36 +4,38 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "koekeishiya/formulae"
 tap "rcmdnk/file"
-cask "java"
-cask "1Password"
 brew "docker"
 brew "docker-machine"
 brew "git"
 brew "htop"
 brew "mas"
 brew "node"
+brew "postgresql"
+brew "screenfetch"
 brew "speedtest-cli"
 brew "tig"
 brew "tmux"
+cask "1password"
 cask "caffeine"
 cask "firefox"
 cask "google-chrome"
+cask "java"
 cask "osxfuse"
 cask "powershell"
 cask "vlc"
 cask "vmware-fusion"
 mas "Apple Configurator 2", id: 1037126344
+mas "Bear", id: 1091189122
 mas "Deliveries", id: 924726344
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
-mas "Microsoft Remote Desktop", id: 715768417
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Remote Desktop", id: 715768417
 mas "Numbers", id: 409203825
-mas "OmniFocus", id: 1346203938
 mas "OmniFocus", id: 1346203938
 mas "Pages", id: 409201541
 mas "Remote Desktop", id: 409907375
+mas "Service Station", id: 1503136033
 mas "Telephone", id: 406825478
 mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835
-mas "Bear", id: 1016366447
