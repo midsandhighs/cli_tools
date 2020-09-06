@@ -1,3 +1,7 @@
 # ignoring the ds_store file
 
+*.tmp
+
+
+
 .DS_Store
