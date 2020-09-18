@@ -25,14 +25,20 @@ Configuration for git type things.
 ### .tmux.config
 Config for tmux
 
+### config.yml
+
+wtfutil vars
+
 ### .zshrc
 
-making zsh useful on macOS
+making zsh useful for me on macOS
 
 ## Scripts
 
 ### cli.sh:
-a script to install my .vimrc and pull Vundles on any BSD system. It also attempts to move .bashrc and .bash_profile into place, then `source .bash_profile` to get the changes. It also puts my global .gitconfig in place. 
+a script to install my .vimrc and pull Vundles on any BSD system. It also attempts to move .bashrc and .bash_profile into place, then `source .bash_profile` to get the changes. It also puts my global .gitconfig in place. It can also install and / or configure `Oh My Zsh`. 
+
+Tested on macOS 10.11 thru 10.16/11.0, along with all stable Ubuntus and FreeBSDs. 
 
 ### pingtimestamp.sh
 
