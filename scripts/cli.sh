@@ -23,21 +23,27 @@ cp ../configs/bashrc $HOME/.bashrc
 echo 'Setting up vim'
 cp ../configs/vimrc $HOME/.vimrc
 
-echo 'Configuring git'
-cp ../configs/gitconfig $HOME/.gitconfig
+echo 'Configuring git'  
+if [ -d $HOME/src/fa/ ]; 
+    then
+        echo '/src/fa/ exists! This machine has FA repos'
+        echo 'copying employer git configuration'
+        cp ../configs/gitconfig-fa $HOME/.gitconfig-fa
+        echo 'copying personal git configuration'
+        cp ../configs/gitconfig $HOME/.gitconfig
+else
+        echo ' copying personal git configuation'
+        cp ../configs/gitconfig $HOME/.gitconfig
 
+fi
 echo 'Tmux Config'
 cp ../configs/tmux $HOME/.tmux.conf
 
-echo 'Installing ZSH'
+# echo 'Installing ZSH'
 # it might not be wise to have this here! 
 # sudo apt install zsh 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cp ../configs/zshrc $HOME/.zshrc
-
-
-# . $HOME/.bash_profile
-# source $HOME/.zshrc
 
 #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
 
@@ -60,4 +66,5 @@ else
         echo 'Vundles updated.'
 fi
 
-
+source $HOME/.bash_profile
+source $HOME/.zshrc
