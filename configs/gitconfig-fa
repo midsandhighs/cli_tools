@@ -1,8 +1,6 @@
 [user]
 	name = midsandhighs
-    email = git@midsandhighs.com
-[includeIf "gitdir:~src/fa"]
-  path = .gitconfig-fa        
+    email = jonathan.haenchen@flightaware.com       
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -11,10 +9,6 @@
 	default = matching
 [core]
 	editor = vim
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
