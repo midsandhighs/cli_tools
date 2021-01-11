@@ -66,5 +66,9 @@ else
         echo 'Vundles updated.'
 fi
 
+# configure hammerspoon
+cp ../configs/hammerspoon $HOME/.hammerspoon/init.lua
+
+
 source $HOME/.bash_profile
 source $HOME/.zshrc
