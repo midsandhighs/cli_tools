@@ -2,7 +2,7 @@
 	name = midsandhighs
     email = git@midsandhighs.com
 [includeIf "gitdir:~src/fa"]
-  path = .gitconfig-fa        
+  	path = .gitconfig-fa        
 [filter "media"]
 	required = true
 	clean = git media clean %f

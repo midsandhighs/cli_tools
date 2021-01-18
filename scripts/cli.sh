@@ -23,19 +23,21 @@ cp ../configs/bashrc $HOME/.bashrc
 echo 'Setting up vim'
 cp ../configs/vimrc $HOME/.vimrc
 
-echo 'Configuring git'  
-if [ -d $HOME/src/fa/ ]; 
-    then
-        echo '/src/fa/ exists! This machine has FA repos'
-        echo 'copying employer git configuration'
-        cp ../configs/gitconfig-fa $HOME/.gitconfig-fa
-        echo 'copying personal git configuration'
-        cp ../configs/gitconfig $HOME/.gitconfig
-else
-        echo ' copying personal git configuation'
-        cp ../configs/gitconfig $HOME/.gitconfig
+# TODO: Need to properly nest the gitconfigurations for machines - dig into this later between your devices
+#
+# echo 'Configuring git'  
+# if [ -d $HOME/src/fa/ ]; 
+#     then
+#         echo '/src/fa/ exists! This machine has FA repos'
+#         echo 'copying employer git configuration'
+#         cp ../configs/gitconfig-fa $HOME/.gitconfig-fa
+#         echo 'copying personal git configuration'
+#         cp ../configs/gitconfig $HOME/.gitconfig
+# else
+#         echo ' copying personal git configuation'
+#         cp ../configs/gitconfig $HOME/.gitconfig
 
-fi
+# fi
 echo 'Tmux Config'
 cp ../configs/tmux $HOME/.tmux.conf
 
