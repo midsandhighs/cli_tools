@@ -15,6 +15,8 @@
 # On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
 # Move the .vimrc file
 
+echo 'Copying iTerm settings'
+cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
 
 echo 'Setting up bash'
 cp ../configs/bashprofile $HOME/.bash_profile
