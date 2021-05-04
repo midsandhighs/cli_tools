@@ -15,8 +15,9 @@
 # On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
 # Move the .vimrc file
 
-echo 'Copying iTerm settings'
-cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
+# echo 'Copying iTerm settings'
+# \ this may not be a good idea but might be fixed with profiles at app level \
+# cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
 
 echo 'Setting up bash'
 cp ../configs/bashprofile $HOME/.bash_profile
@@ -43,10 +44,7 @@ cp ../configs/vimrc $HOME/.vimrc
 echo 'Tmux Config'
 cp ../configs/tmux $HOME/.tmux.conf
 
-# echo 'Installing ZSH'
-# it might not be wise to have this here! 
-# sudo apt install zsh 
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ echo 'zsh config'
 cp ../configs/zshrc $HOME/.zshrc
 
 #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
