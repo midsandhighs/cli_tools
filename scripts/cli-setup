@@ -2,22 +2,21 @@
 
 # set -ex
 
-# Script for doing some preliminary setup for customizing my CLI environment
+# Script for doing some preliminary setup for customizing a terminal environment
 # 
-# - move the .bash_profile
-# - move the .vimrc file 
-# - Verify Vundle is installed
-# - Install Vundle if not
-# - run the command line Vundle tool to install plugins
-# 
-#When you git pull, you can run this to overwrite the older .vimrc
-#
-# On BSD systems, this is typically going to happen wherever I am set for ~, so I'll be using that. 
-# Move the .vimrc file
 
-# echo 'Copying iTerm settings'
-# \ this may not be a good idea but might be fixed with profiles at app level \
-# cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
+usage () {
+        echo "$0 [-triage] [-cli] [-home]"
+        echo "[----$0----]"
+        echo " -triage shells, vim"
+        echo " -cli shells, vim, git, vundles"
+        echo " -home shells, vim, git, vundles, tmux"
+        exit 1;
+}
+
+if [[ ${#} -eq 0 ]]; then
+        usage
+fi
 
 echo 'Setting up bash'
 cp ../configs/bashprofile $HOME/.bash_profile
@@ -67,6 +66,11 @@ else
         vim +PluginInstall +qall
         echo 'Vundles updated.'
 fi
+
+
+# echo 'Copying iTerm settings'
+# \ this may not be a good idea but might be fixed with profiles at app level \
+# cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
 
 # configure hammerspoon
 cp ../configs/hammerspoon $HOME/.hammerspoon/init.lua
