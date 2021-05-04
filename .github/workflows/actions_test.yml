@@ -1,6 +1,8 @@
-# This is a basic workflow to help you get started with Actions
+# Basic OS Test
+# 
+# verifies cli_tools will run on macOS latest for now.
 
-name: actions_test
+name: Basic OS Test
 
 # Controls when the action will run. 
 on:
@@ -29,3 +31,8 @@ jobs:
           echo $SHELL
           echo $PWD
           ls -la
+
+      - name: script run
+        run: bash scripts/actions_test.sh
+          
+
