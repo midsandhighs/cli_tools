@@ -24,8 +24,8 @@ jobs:
       # Runs a set pf commands to report some info
       - name: debug info
         run: |
-					echo $whoami
-					echo $PATH
-					echo $SHELL
-					echo $PWD
-					ls -la
+          echo $whoami
+          echo $PATH
+          echo $SHELL
+          echo $PWD
+          ls -la
