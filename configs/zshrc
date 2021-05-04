@@ -96,13 +96,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # For a full list of active aliases, run `alias`.
 #
 alias ls='ls -lFGh'
-alias testkitchen='mosh fa-testkitchen'
 alias :q='exit'
 
 # Tiny Care Terminal variables
 export TTC_GITBOT='gitlog'
 export TTC_WEATHER='Houston'
-export TTC_REPOS='/Users/jonathan.haenchen/git'
+export TTC_REPOS='$HOME/src'
 export TTC_APIKEYS=false
 export TTC_SAY_BOX='yeoman'
 export TTC_CELSIUS=false
