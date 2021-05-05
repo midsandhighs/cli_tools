@@ -1,4 +1,4 @@
-# A .bashrc attempt
+# mids bashrc with git parsing and TTC vars
 
 # get current branch in git repo
 parse_git_branch () {

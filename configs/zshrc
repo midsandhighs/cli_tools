@@ -1,51 +1,59 @@
-# If you come from bash you might have to change your $PATH.
+# mids zsh config
+# exports 
+# declare $path
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# oh-my-ZSH vars
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 ZSH_THEME="agnoster"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+plugins=(
+  git
+  git-extras
+  knife
+  osx
+  )
+# set UTF-8 for sanity
+export LANG=en_US.UTF-8
+# Tiny Care Terminal variables
+export TTC_GITBOT='gitlog'
+export TTC_WEATHER='Houston'
+export TTC_REPOS='$HOME/src/'
+export TTC_APIKEYS=false
+export TTC_SAY_BOX='yeoman'
+export TTC_CELSIUS=false
+export TTC_UPDATE_INTERVAL=5
+export TTC_TERMINAL_TITLE=true
+export TTC_REPOS_DEPTH=3
+# aliases
+alias -g ls='ls -lFGh' # -g is global alias
+alias cd..='cd ../' # Theoretically this will let me navigate backwards
+alias ..='cd ../'   # This may be quicker though
+alias :q='exit'
+# Prefer vim for local / remote editing
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
+# if oh-my-zsh installed, source it, otherwise, just setup zsh
+if [[ -f $ZSH/oh-my-zsh.sh ]]; then
+  echo -e "\xE2\x9C\x94 oh-my-zsh.sh exists, sourcing..."
+  source $ZSH/oh-my-zsh.sh
+else
+  echo -e "\xE2\x9C\x94 oh-my-zsh.sh is not present"
+fi
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -53,58 +61,3 @@ COMPLETION_WAITING_DOTS="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  git-extras
-  knife
-  osx
-  )
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-alias ls='ls -lFGh'
-alias :q='exit'
-
-# Tiny Care Terminal variables
-export TTC_GITBOT='gitlog'
-export TTC_WEATHER='Houston'
-export TTC_REPOS='$HOME/src'
-export TTC_APIKEYS=false
-export TTC_SAY_BOX='yeoman'
-export TTC_CELSIUS=false
-export TTC_UPDATE_INTERVAL=5
-export TTC_TERMINAL_TITLE=true
-export TTC_REPOS_DEPTH=3
