@@ -7,14 +7,18 @@
 
 
 # user
-dscl . create /Users/autopkg
+echo " create user"
+dscl . create /Users/midsandhighs
 # shell 
-dscl . create /Users/autopkg UserShell /bin/zsh
+echo " set shell"
+dscl . create /Users/midsandhighs UserShell /bin/zsh
 # description 
-dscl . create /Users/autopkg RealName "AutoPkg"
+dscl . create /Users/midsandhighs RealName "Jonathan Haenchen"
 # uid
-dscl . create /Users/autopkg UniqueID 900
+echo "uid"
+dscl . create /Users/midsandhighs UniqueID 502
 # gid
-dscl . create /Users/autopkg PrimaryGroupID 20
-# home
-dscl . create /Users/autopkg NFSHomeDirectory /Local/Users/autopkg
+echo "gid"
+dscl . create /Users/midsandhighs PrimaryGroupID 20
+#add to ARD groups on local device
+dseditgroup -o edit -a jonathan.haenchen -t user com.apple.com.apple.access_screensharing
