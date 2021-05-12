@@ -1,9 +1,13 @@
+-- # # # # #
+-- mids hammerspoon conf
+-- # # # # #
+-- manual reload to shift / ctrl R with very apparent notification
+-- hs.hotkey.bind({"shift", "ctrl"}, "R", function()
+--   hs.reload()
+-- end)
+-- hs.alert.show("conf reloaded")
 
-hs.hotkey.bind({"shift", "ctrl"}, "R", function()
-  hs.reload()
-  hs.alerts.show({title="Hammerspoon", informativeText="Config loaded"})
-end)
-
+-- full screen left side - shift / ctrl left arrow 
 hs.hotkey.bind({"shift", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -13,10 +17,23 @@ hs.hotkey.bind({"shift", "ctrl"}, "Left", function()
   f.x = max.x 
   f.y = max.y
   f.w = max.w / 2
-  f.h = max.h
+  f.h = max.h 
   win:setFrame(f)
 end)
-
+-- top left quad 
+hs.hotkey.bind({"shift", "ctrl"}, "Up", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+  
+    f.x = max.x 
+    f.y = max.y
+    f.w = max.w / 2
+    f.h = max.h 
+    win:setFrame(f)
+end)
+  
 hs.hotkey.bind( {"shift", "ctrl"}, "Right", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -29,3 +46,29 @@ hs.hotkey.bind( {"shift", "ctrl"}, "Right", function()
   f.h = max.h
   win:setFrame(f)
 end)
+-- windowlayout attempt
+hs.hotkey.bind( {"shift", "ctrl"}, "C", function()
+    local laptopScreen = "Built-in Retina Display"
+    local windowLayout = {
+        {"Safari",  nil, laptopScreen, hs.layout.left50, nil, nil},
+        {"Mail", nil, laptopScreen, hs.layout.right50, nil, nil},
+        {"Music", "Music",laptopScreen, hs.layout.maximized, nil, nil},
+        {"Music", "MiniPlayer",laptopScreen, nil, nil, hs.geometry.rect(0, -48, 400, 48)},
+    }
+    hs.layout.apply(windowLayout)
+end)
+--auto reload on config change
+function reloadConfig(files)
+    doReload = false
+    for _,file in pairs(files) do
+        if file:sub(-4) == ".lua" then
+            doReload = true
+        end
+    end
+    if doReload then
+        hs.reload()
+    end
+end
+myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+-- autoload is not as noisy
+hs.notify.new({title="mids hammerspoon", informativeText="conf loaded!"}):send()
