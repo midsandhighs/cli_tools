@@ -1,6 +1,7 @@
 -- # # # # #
 -- mids hammerspoon conf
 -- # # # # #
+local hotkey
 -- manual reload to shift / ctrl R with very apparent notification
 -- hs.hotkey.bind({"shift", "ctrl"}, "R", function()
 --   hs.reload()
