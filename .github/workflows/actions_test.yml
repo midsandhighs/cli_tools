@@ -32,6 +32,6 @@ jobs:
           ls -la
 
       - name: script run
-        run: bash scripts/tests/actions_test.sh
+        run: bash scripts/devops/tests/actions_test.sh
           
 
