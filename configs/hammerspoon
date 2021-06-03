@@ -1,51 +1,131 @@
--- # # # # #
+------------
 -- mids hammerspoon conf
--- # # # # #
-local hotkey
+------------
+-- debug function -- uncomment to keybind config reload
 -- manual reload to shift / ctrl R with very apparent notification
--- hs.hotkey.bind({"shift", "ctrl"}, "R", function()
---   hs.reload()
--- end)
--- hs.alert.show("conf reloaded")
-
--- full screen left side - shift / ctrl left arrow 
+local hotkey
+hs.hotkey.bind({"shift", "ctrl"}, "R", function()
+  hs.reload()
+end)
+hs.alert.show("conf reloaded")
+-- remove animation duration during debug 
+hs.window.animationDuration = 0
+------------
+-- Binding [Shift + Control] + [ Arrows ]
+------------ 
+-- Left Side Full Screen
+-- [Shift + Control] + [ Left Arrow ] 
 hs.hotkey.bind({"shift", "ctrl"}, "Left", function()
   local win = hs.window.focusedWindow()
-  local f = win:frame()
+  local links = win:frame()
   local screen = win:screen()
   local max = screen:frame()
-
-  f.x = max.x 
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h 
-  win:setFrame(f)
+  links.x = max.x 
+  links.y = max.y
+  links.w = max.w / 2
+  links.h = max.h 
+  win:setFrame(links)
 end)
--- top left quad 
-hs.hotkey.bind({"shift", "ctrl"}, "Up", function()
+-- Right Side Full Screen
+-- [Shift + Control] + [ Right Arrow ] 
+hs.hotkey.bind({"shift", "ctrl"}, "Right", function()
     local win = hs.window.focusedWindow()
-    local f = win:frame()
+    local recht = win:frame()
     local screen = win:screen()
     local max = screen:frame()
-  
-    f.x = max.x 
-    f.y = max.y
-    f.w = max.w / 2
-    f.h = max.h 
+    recht.x = max.x + (max.w / 2)
+    recht.y = max.y
+    recht.w = max.w / 2
+    recht.h = max.h 
+    win:setFrame(recht)
+  end)
+-- folds current window up half of screen
+-- [Shift + Control] + [ Up Arrow ]
+hs.hotkey.bind( {"shift", "ctrl"}, "Up", function()
+    local win = hs.window.focusedWindow()
+    local up = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    up.h = max.h / 2 
+    win:setFrame(up)
+  end)
+-- folds current window down half of screen
+-- [Shift + Control] + [ Down Arrow ]
+hs.hotkey.bind( {"shift", "ctrl"}, "Down", function()
+    local win = hs.window.focusedWindow()
+    local down = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+    down.h = max.h / 2
+    down.y = max.y / 2
+    win:setFrame(f)
+  end)
+------------
+-- Binding [Control + Option] + [ Numpad ] to nethack / compass directions
+------------ 
+-- N / Up / 8 
+hs.hotkey.bind({"alt", "ctrl"}, "pad8", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x 
+    f.y = f.y - 50
     win:setFrame(f)
 end)
-  
-hs.hotkey.bind( {"shift", "ctrl"}, "Right", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 2)
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
+-- NE / Up + Right / 9
+hs.hotkey.bind({"alt", "ctrl"}, "pad9", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x + 50
+    f.y = f.y - 50
+    win:setFrame(f)
+end)
+-- E / Right / 6 
+hs.hotkey.bind({"alt", "ctrl"}, "pad6", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x + 50
+    f.y = f.y 
+    win:setFrame(f)
+end)
+-- SE / Right / 3
+hs.hotkey.bind({"alt", "ctrl"}, "pad3", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x + 50
+    f.y = f.y + 50
+    win:setFrame(f)
+end)
+-- S / Down / 2 
+hs.hotkey.bind({"alt", "ctrl"}, "pad2", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x 
+    f.y = f.y + 50
+    win:setFrame(f)
+end)
+-- SW / Down / 1
+hs.hotkey.bind({"alt", "ctrl"}, "pad1", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x - 50
+    f.y = f.y + 50
+    win:setFrame(f)
+end)
+-- W / Left / 4 
+hs.hotkey.bind({"alt", "ctrl"}, "pad4", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x - 50
+    f.y = f.y 
+    win:setFrame(f)
+end)
+-- NW / Left / 7
+hs.hotkey.bind({"alt", "ctrl"}, "pad7", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.x = f.x - 50
+    f.y = f.y - 50
+    win:setFrame(f)
 end)
 -- windowlayout attempt
 hs.hotkey.bind( {"shift", "ctrl"}, "C", function()
@@ -70,6 +150,6 @@ function reloadConfig(files)
         hs.reload()
     end
 end
-myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+autoconf = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 -- autoload is not as noisy
 hs.notify.new({title="mids hammerspoon", informativeText="conf loaded!"}):send()
