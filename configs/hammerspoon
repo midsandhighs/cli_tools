@@ -46,19 +46,20 @@ hs.hotkey.bind( {"shift", "ctrl"}, "Up", function()
     local up = win:frame()
     local screen = win:screen()
     local max = screen:frame()
+    up.y = max.x
     up.h = max.h / 2 
     win:setFrame(up)
   end)
--- folds current window down half of screen
+-- bottom left quadrant
 -- [Shift + Control] + [ Down Arrow ]
 hs.hotkey.bind( {"shift", "ctrl"}, "Down", function()
     local win = hs.window.focusedWindow()
-    local down = win:frame()
+    local downright = win:frame()
     local screen = win:screen()
     local max = screen:frame()
-    down.h = max.h / 2
-    down.y = max.y / 2
-    win:setFrame(f)
+    downright.y = max.h / 2
+    downright.h = max.h / 2
+    win:setFrame(downright)
   end)
 ------------
 -- Binding [Control + Option] + [ Numpad ] to nethack / compass directions
@@ -66,7 +67,7 @@ hs.hotkey.bind( {"shift", "ctrl"}, "Down", function()
 -- N / Up / 8 
 hs.hotkey.bind({"alt", "ctrl"}, "pad8", function()
     local win = hs.window.focusedWindow()
-    local f = win:frame()
+    local N = win:frame()
     f.x = f.x 
     f.y = f.y - 50
     win:setFrame(f)
