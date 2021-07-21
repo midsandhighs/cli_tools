@@ -39,28 +39,39 @@ hammerspoon () {
     cp -rv ../configs/hammerspoon $HOME/.hammerspoon/init.lua
 }
 # # vim install function 
-# vim () {
-#         echo 'Setting up vim'
-#         cp ../configs/vimrc $HOME/.vimrc
-#         #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
-#         if [[ -d "$HOME/.vim/bundle" ]]; then
-#         echo 'Vundle folder exists!'
-#         sleep 3s
-#         vim +PluginInstall +qall
-#         echo 'Vundles updated.'
-# else    
-    
-#         echo 'Vundle is not installed! '
-#         sleep 10s
-#         echo 'Cloning Vundle.vim'  
-#         git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-#         sleep 5s
-#         echo 'Vundle Installed!'
-#         sleep 3s 
-#         vim +PluginInstall +qall
-#         echo 'Vundles updated.'
-# fi
-# }
+vim_setup () {
+    echo 'Setting up vim'
+    cp ../configs/vimrc $HOME/.vimrc
+    #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
+    if [[ -d "$HOME/.vim/bundle" ]]; then
+        echo 'Vundle folder exists!'
+        vim +PluginInstall +qall
+        echo 'Vundles updated.'
+    else    
+        echo 'Vundle is not installed!'
+        echo 'Cloning Vundle.vim'  
+        git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+        echo 'Vundle Installed!'
+        vim +PluginInstall +qall
+        echo 'Vundles updated.'
+    fi
+}
+git_config_setup () {
+    echo 'Configuring git'
+    echo 'Copying top-level config'  
+    cp ../configs/gitconfig $HOME/.gitconfig
+    if [ -d $HOME/src/thd/ ]; 
+        then
+        echo '/src/thd/ exists! This machine has THD repos'
+        echo 'copying employer git configuration'
+        cp ../configs/gitconfig-thd $HOME/.gitconfig-thd
+        echo 'copying personal git configuration'
+        cp ../configs/gitconfig-mids $HOME/.gitconfig-mids
+    else
+        echo ' copying personal git configuation'
+        cp ../configs/gitconfig-mids $HOME/.gitconfig-mids
+    fi
+}
 # # # # # # #
 # cli arguments
 # # # # # # #
@@ -72,7 +83,12 @@ while getopts "tch" arg; do
             tmux
             ;;
         c ) # run cli setup
-            shells;;
+            echo "Setting up shells, tmux, and vim"
+            shells
+	        tmux
+	        vim_setup
+            git_config_setup
+            ;;
         h ) # run home setup
             shells;;
         \? ) usage;;
@@ -82,19 +98,7 @@ done
 
 # TODO: Need to properly nest the gitconfigurations for machines - dig into this later between your devices
 #
-# echo 'Configuring git'  
-# if [ -d $HOME/src/fa/ ]; 
-#     then
-#         echo '/src/fa/ exists! This machine has FA repos'
-#         echo 'copying employer git configuration'
-#         cp ../configs/gitconfig-fa $HOME/.gitconfig-fa
-#         echo 'copying personal git configuration'
-#         cp ../configs/gitconfig $HOME/.gitconfig
-# else
-#         echo ' copying personal git configuation'
-#         cp ../configs/gitconfig $HOME/.gitconfig
 
-# fi
 
 # echo 'Copying iTerm settings'
 # \ this may not be a good idea but might be fixed with profiles at app level \
