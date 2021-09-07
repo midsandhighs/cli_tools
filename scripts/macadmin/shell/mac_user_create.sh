@@ -8,17 +8,17 @@
 
 # user
 echo " create user"
-dscl . create /Users/midsandhighs
+dscl . create /Users/$USER
 # shell 
 echo " set shell"
-dscl . create /Users/midsandhighs UserShell /bin/zsh
+dscl . create /Users/$USER UserShell /bin/zsh
 # description 
-dscl . create /Users/midsandhighs RealName "Jonathan Haenchen"
+dscl . create /Users/$USER RealName "$USER"
 # uid
 echo "uid"
-dscl . create /Users/midsandhighs UniqueID 502
+dscl . create /Users/$USER UniqueID 502
 # gid
 echo "gid"
-dscl . create /Users/midsandhighs PrimaryGroupID 20
+dscl . create /Users/$USER PrimaryGroupID 20
 #add to ARD groups on local device
-dseditgroup -o edit -a jonathan.haenchen -t user com.apple.com.apple.access_screensharing
+dseditgroup -o edit -a $USER -t user com.apple.com.apple.access_screensharing
