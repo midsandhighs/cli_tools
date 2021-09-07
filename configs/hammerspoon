@@ -3,13 +3,13 @@
 ------------
 -- debug function -- uncomment to keybind config reload
 -- manual reload to shift / ctrl R with very apparent notification
-local hotkey
-hs.hotkey.bind({"shift", "ctrl"}, "R", function()
-  hs.reload()
-end)
-hs.alert.show("conf reloaded")
--- remove animation duration during debug 
-hs.window.animationDuration = 0
+-- local hotkey
+-- hs.hotkey.bind({"shift", "ctrl"}, "R", function()
+--   hs.reload()
+-- end)
+-- hs.alert.show("conf reloaded")
+-- -- remove animation duration during debug 
+-- hs.window.animationDuration = 0
 ------------
 -- Binding [Shift + Control] + [ Arrows ]
 ------------ 
@@ -39,7 +39,8 @@ hs.hotkey.bind({"shift", "ctrl"}, "Right", function()
     recht.h = max.h 
     win:setFrame(recht)
   end)
--- folds current window up half of screen
+-- folds current window into top half 
+-- should not affect horizontal size
 -- [Shift + Control] + [ Up Arrow ]
 hs.hotkey.bind( {"shift", "ctrl"}, "Up", function()
     local win = hs.window.focusedWindow()
@@ -50,7 +51,8 @@ hs.hotkey.bind( {"shift", "ctrl"}, "Up", function()
     up.h = max.h / 2 
     win:setFrame(up)
   end)
--- bottom left quadrant
+-- folds current window into top half 
+-- should not affect horizontal size
 -- [Shift + Control] + [ Down Arrow ]
 hs.hotkey.bind( {"shift", "ctrl"}, "Down", function()
     local win = hs.window.focusedWindow()
@@ -127,17 +129,6 @@ hs.hotkey.bind({"alt", "ctrl"}, "pad7", function()
     f.x = f.x - 50
     f.y = f.y - 50
     win:setFrame(f)
-end)
--- windowlayout attempt
-hs.hotkey.bind( {"shift", "ctrl"}, "C", function()
-    local laptopScreen = "Built-in Retina Display"
-    local windowLayout = {
-        {"Safari",  nil, laptopScreen, hs.layout.left50, nil, nil},
-        {"Mail", nil, laptopScreen, hs.layout.right50, nil, nil},
-        {"Music", "Music",laptopScreen, hs.layout.maximized, nil, nil},
-        {"Music", "MiniPlayer",laptopScreen, nil, nil, hs.geometry.rect(0, -48, 400, 48)},
-    }
-    hs.layout.apply(windowLayout)
 end)
 --auto reload on config change
 function reloadConfig(files)
