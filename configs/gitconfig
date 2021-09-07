@@ -1,8 +1,7 @@
-[user]
-	name = midsandhighs
-    email = git@midsandhighs.com
-[includeIf "gitdir:~/src/fa"]
-  	path = ~/.gitconfig-fa        
+[includeIf "gitdir:~/src/"]
+  	path = .gitconfig-mids      
+[includeIf "gitdir:~/src/thd/"]
+  	path = .gitconfig-thd  
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -11,11 +10,3 @@
 	default = matching
 [core]
 	editor = vim
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true

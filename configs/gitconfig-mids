@@ -1,0 +1,11 @@
+[user]
+	name = midsandhighs
+    email = midsandhighs@users.noreply.github.com    
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[push]
+	default = matching
+[core]
+	editor = vim

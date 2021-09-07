@@ -1,9 +1,16 @@
 # mids zsh config
 # exports 
 # declare $path
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 # oh-my-ZSH vars
-export ZSH="$HOME/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
+# if oh-my-zsh installed, source it, otherwise, just setup zsh
+#if [[ -f $ZSH/oh-my-zsh.sh ]]; then
+#  echo -e "\xE2\x9C\x94 oh-my-zsh.sh exists, sourcing..."
+#  source $ZSH/oh-my-zsh.sh
+#else
+#  echo -e "\xE2\x9C\x94 oh-my-zsh.sh is not present"
+#fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -28,27 +35,20 @@ export TTC_UPDATE_INTERVAL=5
 export TTC_TERMINAL_TITLE=true
 export TTC_REPOS_DEPTH=3
 # aliases
-alias -g ls='ls -lFGh' # -g is global alias
-alias cd..='cd ../' # Theoretically this will let me navigate backwards
-alias ..='cd ../'   # This may be quicker though
-alias :q='exit'
+alias ls="ls -lGFh" # 
+alias cd..="cd ../" # Theoretically this will let me navigate backwards
+alias ..="cd ../"   # This may be quicker though
+alias :q="exit"
 # Prefer vim for local / remote editing
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='mvim'
 fi
-# if oh-my-zsh installed, source it, otherwise, just setup zsh
-if [[ -f $ZSH/oh-my-zsh.sh ]]; then
-  echo -e "\xE2\x9C\x94 oh-my-zsh.sh exists, sourcing..."
-  source $ZSH/oh-my-zsh.sh
-else
-  echo -e "\xE2\x9C\x94 oh-my-zsh.sh is not present"
-fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Uncomment the following line to use case-sensitive completion.
+## Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -61,3 +61,13 @@ COMPLETION_WAITING_DOTS="true"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
+# oh-my-ZSH vars
+export ZSH="$HOME/.oh-my-zsh"
+# if oh-my-zsh installed, source it, otherwise, just setup zsh
+if [[ -f $ZSH/oh-my-zsh.sh ]]; then
+  echo -e "\xE2\x9C\x94 oh-my-zsh.sh exists, sourcing..."
+  source $ZSH/oh-my-zsh.sh
+else
+  echo -e "\xE2\x9C\x94 oh-my-zsh.sh is not present"
+fi
+
