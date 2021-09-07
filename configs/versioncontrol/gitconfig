@@ -2,7 +2,7 @@
   	path = .gitconfig-mids      
 [includeIf "gitdir:~/src/thd/"]
   	path = .gitconfig-thd  
-[includeIf "gitdir:~/Documents/hirn"]
+[includeIf "gitdir:~/Documents/hirn/"]
 	path = .gitconfig-thd
 [filter "media"]
 	required = true
