@@ -24,24 +24,24 @@ fi
 # shells function
 shells () {
     echo 'Moving shell configurations'
-    cp -rv ../configs/bashprofile $HOME/.bash_profile
-    cp -rv ../configs/bashrc $HOME/.bashrc
-    cp -rv ../configs/zshrc $HOME/.zshrc
+    cp -rv ../configs/shells/bashprofile $HOME/.bash_profile
+    cp -rv ../configs/shells/bashrc $HOME/.bashrc
+    cp -rv ../configs/shells/zshrc $HOME/.zshrc
 }
 # tmux function
 tmux () {
     echo 'Moving tmux configurations'
-    cp -rv ../configs/tmux $HOME/.tmux.conf
+    cp -rv ../configs/tools/tmux $HOME/.tmux.conf
 }
 # hammerspoon function
 hammerspoon () {
     echo 'Moving hammerspoon configurations'
-    cp -rv ../configs/hammerspoon $HOME/.hammerspoon/init.lua
+    cp -rv ../configs/tools/hammerspoon $HOME/.hammerspoon/init.lua
 }
 # # vim install function 
 vim_setup () {
     echo 'Setting up vim'
-    cp ../configs/vimrc $HOME/.vimrc
+    cp ../configs/tools/vimrc $HOME/.vimrc
     #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
     if [[ -d "$HOME/.vim/bundle" ]]; then
         echo 'Vundle folder exists!'
@@ -59,17 +59,17 @@ vim_setup () {
 git_config_setup () {
     echo 'Configuring git'
     echo 'Copying top-level config'  
-    cp ../configs/gitconfig $HOME/.gitconfig
+    cp ../configs/versoncontrol/gitconfig $HOME/.gitconfig
     if [ -d $HOME/src/thd/ ]; 
         then
         echo '/src/thd/ exists! This machine has THD repos'
         echo 'copying employer git configuration'
-        cp ../configs/gitconfig-thd $HOME/.gitconfig-thd
+        cp ../configs/versoncontrol/gitconfig-thd $HOME/.gitconfig-thd
         echo 'copying personal git configuration'
-        cp ../configs/gitconfig-mids $HOME/.gitconfig-mids
+        cp ../configs/versoncontrol/gitconfig-mids $HOME/.gitconfig-mids
     else
         echo ' copying personal git configuation'
-        cp ../configs/gitconfig-mids $HOME/.gitconfig-mids
+        cp ../configs/versoncontrol/gitconfig-mids $HOME/.gitconfig-mids
     fi
 }
 # # # # # # #
@@ -94,12 +94,3 @@ while getopts "tch" arg; do
         \? ) usage;;
     esac
 done
-
-
-# TODO: Need to properly nest the gitconfigurations for machines - dig into this later between your devices
-#
-
-
-# echo 'Copying iTerm settings'
-# \ this may not be a good idea but might be fixed with profiles at app level \
-# cp ../configs/iterm.config $HOME/Library/Preferences/com.googlecode.iterm2.plist
