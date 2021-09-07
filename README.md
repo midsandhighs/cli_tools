@@ -1,8 +1,32 @@
 # cli tools
 
-The repo for tools to make my life easier in multiple environments.
+```
+The cool kids call these "dotfiles"
+```
+
+configs, tools, scripts to "get things done."
+
+
 
 ## Config files
+
+### hammerspoon
+
+I use [Hammerspoon](https://github.com/Hammerspoon/hammerspoon) to handle window management on macOS devices. It allows me to use .lua files to bind keyboard commands to variety of actions. 
+#### Enabled:
+* Window Mgmt
+* *  Shift - Ctrl - `$arrowkeys`
+* * * Left & Right - folds focused window in half horizontally and chooses side of screen
+* * * Up & Down - fold focused window in half vertically and chooses top / bottom half of screen
+* [Nethack](https://nethackwiki.com/wiki/Direction) Movement
+* * Alt/Opt - Ctrl - `$numpad`
+* * * moves focused window in compass rose directions
+* reloadConfig()
+* * function to autoreload configuration on a change 
+#### Disabled:
+* Debug function
+* * Shift - Ctrl - R
+* * Manual reload with `hs.alert` which is more prominent than `hs.notify`
 
 ### .vimrc  
 My vim customization file, including Vundles. macOS, Debian, Ubuntu and FreeBSD tested
