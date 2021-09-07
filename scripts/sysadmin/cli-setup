@@ -24,24 +24,24 @@ fi
 # shells function
 shells () {
     echo 'Moving shell configurations'
-    cp -rv ../configs/shells/bashprofile $HOME/.bash_profile
-    cp -rv ../configs/shells/bashrc $HOME/.bashrc
-    cp -rv ../configs/shells/zshrc $HOME/.zshrc
+    cp -rv ../../configs/shells/bashprofile $HOME/.bash_profile
+    cp -rv ../../configs/shells/bashrc $HOME/.bashrc
+    cp -rv ../../configs/shells/zshrc $HOME/.zshrc
 }
 # tmux function
 tmux () {
     echo 'Moving tmux configurations'
-    cp -rv ../configs/tools/tmux $HOME/.tmux.conf
+    cp -rv ../../configs/tools/tmux $HOME/.tmux.conf
 }
 # hammerspoon function
 hammerspoon () {
     echo 'Moving hammerspoon configurations'
-    cp -rv ../configs/tools/hammerspoon $HOME/.hammerspoon/init.lua
+    cp -rv ../../configs/tools/hammerspoon $HOME/.hammerspoon/init.lua
 }
 # # vim install function 
 vim_setup () {
     echo 'Setting up vim'
-    cp ../configs/tools/vimrc $HOME/.vimrc
+    cp ../../configs/tools/vimrc $HOME/.vimrc
     #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
     if [[ -d "$HOME/.vim/bundle" ]]; then
         echo 'Vundle folder exists!'
@@ -59,17 +59,17 @@ vim_setup () {
 git_config_setup () {
     echo 'Configuring git'
     echo 'Copying top-level config'  
-    cp ../configs/versoncontrol/gitconfig $HOME/.gitconfig
+    cp ../../configs/versioncontrol/gitconfig $HOME/.gitconfig
     if [ -d $HOME/src/thd/ ]; 
         then
         echo '/src/thd/ exists! This machine has THD repos'
         echo 'copying employer git configuration'
-        cp ../configs/versoncontrol/gitconfig-thd $HOME/.gitconfig-thd
+        cp ../../configs/versioncontrol/gitconfig-thd $HOME/.gitconfig-thd
         echo 'copying personal git configuration'
-        cp ../configs/versoncontrol/gitconfig-mids $HOME/.gitconfig-mids
+        cp ../../configs/versioncontrol/gitconfig-mids $HOME/.gitconfig-mids
     else
         echo ' copying personal git configuation'
-        cp ../configs/versoncontrol/gitconfig-mids $HOME/.gitconfig-mids
+        cp ../../configs/versioncontrol/gitconfig-mids $HOME/.gitconfig-mids
     fi
 }
 # # # # # # #
