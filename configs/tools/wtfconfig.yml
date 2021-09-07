@@ -1,0 +1,120 @@
+wtf:
+  colors:
+    background: "transparent"
+    border:
+      focusable: "lightgreen"
+      focused: "goldenrod"
+      normal: "darkgreen"
+    checked: "gray"
+    highlight:
+      fore: "black"
+      back: "green"
+    labels: "lightgreen::b"
+    rows:
+      even: "green"
+      odd: "lightgreen"
+    subheading: "lightgreen::b"
+    text: "green"
+    title: "lightgreen"
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [10, 10, 10, 10, 10, 90]
+  refreshInterval: 1
+  mods:
+    jira:
+      apiKey: "KEY GOES HERE"
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      domain: "https://flightaware.atlassian.net"
+      email: "jonathan.haenchen@flightaware.com"
+      enabled: true
+      jql: "issueType = Story & Status != Done & Status != Closed"
+      position:
+        top: 3
+        left: 1
+        height: 2
+        width: 2
+      project: "Desktop"
+      refreshInterval: 900
+      username: "jonathan.haenchen@flightaware.com"
+      verifyServerCertificate: true
+    clocks_a:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        GWP: "America/Chicago"
+        NYC: "America/New_York"
+        SGP: "Asia/Singapore"
+      position:
+        top: 0
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+      title: "FA Offices"
+      type: "clocks"
+    clocks_b:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        London: "Europe/London"
+        Texas: "America/Chicago"
+        Angel Fire: "America/Denver"
+      position:
+        top: 0
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+      title: "Fam TZ"
+      type: "clocks"
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 150
+    power:
+      enabled: true
+      position:
+        top: 1
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 15
+      title: "⚡️"
+    uptime:
+      args: [""]
+      cmd: "uptime"
+      enabled: true
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 30
+      type: cmdrunner
+    security_info:
+      type: security
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 3600
