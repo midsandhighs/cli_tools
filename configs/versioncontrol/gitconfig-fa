@@ -1,0 +1,15 @@
+[user]
+	name = midsandhighs
+    email = jonathan.haenchen@flightaware.com       
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[push]
+	default = matching
+[core]
+	editor = vim
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
