@@ -17,7 +17,7 @@ A personal dotfiles/config/scripts collection ("cli_tools") for setting up and a
   - `sysadmin/cli-setup` — the main installer (see below)
   - `sysadmin/crontabs.sh` — dumps every local user's crontab (needs sudo)
   - `devops/tools/` — `git_check.sh` and `masspull.sh`, both operate on a directory of git repo checkouts (loop over `./*/` subdirectories doing `git fetch`/`git pull`)
-  - `devops/builds/actions_test.sh` and `devops/tests/actions_test.sh` — trivial scripts invoked by CI (currently identical stub scripts)
+  - `devops/tests/actions_test.sh` — trivial stub script invoked by CI as a smoke test
   - `macadmin/shell/mac_user_create.sh` — creates a macOS standard service user via `dscl`
   - `macadmin/osa/quitting.scpt` — AppleScript that announces running apps via `say`
   - `netadmin/pingtimestamp.sh` — wraps `ping` output with timestamps
@@ -31,11 +31,11 @@ A personal dotfiles/config/scripts collection ("cli_tools") for setting up and a
   - `-c` (cli): installs shells, tmux, vim (+ Vundle), and git config
   - `-h` (home): not currently fully implemented — only runs `shells` (per the script's own comments, `-c` and `-h` are meant to differ by adding oh-my-zsh, but that isn't implemented either)
   - Git config setup checks for `$HOME/src/thd/` to decide whether to install the THD (employer) gitconfig include in addition to the personal one.
-  - It copies each config file straight over any existing destination in `$HOME` (plain `cp -rv`, no backup) — be aware re-running it will silently overwrite a user's current dotfiles.
+  - It copies each config through an `install_file` helper that backs up any existing destination to `<dest>.bak.<timestamp>` before overwriting, so re-running it won't silently destroy a user's current dotfiles.
 - **Multiple gitconfig includes exist for separating identities** (personal `mids`, employer `thd`, `fa`) — when editing git config, keep values in the correct context-specific file rather than the shared top-level `gitconfig`.
 - **`git_check.sh` and `masspull.sh` assume they are run from a parent directory containing multiple git repo checkouts as immediate subdirectories** — they `cd` into each `./*/` and run git commands, then `cd ..`.
 - Scripts target macOS primarily, with some tested on Debian/Ubuntu/FreeBSD (per README) — don't assume GNU-only shell/utility behavior; several scripts intentionally use `#!/bin/sh` and POSIX-compatible syntax.
-- CI (`.github/workflows/actions_test.yml`) runs a single `build` job on `macos-latest` for `pull_request`/`workflow_dispatch`, and just executes `scripts/devops/tests/actions_test.sh` as a smoke test. It doesn't lint shell scripts or validate config installation.
+- CI (`.github/workflows/actions_test.yml`) runs on `pull_request`/`workflow_dispatch` with two jobs: a `shellcheck` job that lints every `scripts/**` shell script (and `cli-setup`), and a `smoke` job that runs `scripts/devops/tests/actions_test.sh` on both `macos-latest` and `ubuntu-latest`. It does not validate config installation. Shell scripts are expected to pass `shellcheck`, so keep new/edited scripts POSIX-clean (several use `#!/bin/sh`).
 
 ## Common tasks
 

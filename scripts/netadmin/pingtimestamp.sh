@@ -2,8 +2,8 @@
 
 #set -ex
 
-#Use like ./pingstimestamp.sh $site
+#Use like ./pingtimestamp.sh $site
 
-echo $1
+echo "$1"
 
-ping -A $1 | while read pong ; do echo "$(date): $pong"; done
+ping -A "$1" | while IFS= read -r pong ; do echo "$(date): $pong"; done

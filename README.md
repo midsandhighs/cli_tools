@@ -49,9 +49,9 @@ Configuration for git type things.
 ### .tmux.config
 Configuration for tmux 
 
-### config.yml
+### wtfconfig.yml
 
-wtfutil vars
+wtfutil vars (lives at `configs/tools/wtfconfig.yml`)
 
 ### .zshrc
 
