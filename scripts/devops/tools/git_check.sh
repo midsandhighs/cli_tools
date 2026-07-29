@@ -2,66 +2,51 @@
 # set -v
 # # #
 # quick git check and update script
+#
+# Run from a parent directory that holds git checkouts as immediate
+# subdirectories; each one is fetched, described, and pulled.
 # # #
 # OS agnostic paths
-PATH=/bin:/usr/bin:/usr/local/bin/:/sbin:/opt/homebrew/bin
+PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/opt/homebrew/bin
 
-# 
-function parse_git_branch () {
-	BRANCH=`git branch 2>&1 | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-	if [ ! "${BRANCH}" == "" ]
-	then
-		STAT=`parse_git_dirty`
-		echo "[${BRANCH}${STAT}]"
-	else
-		echo "[${BRANCH}${STAT}]"
-	fi
+#
+parse_git_branch () {
+	BRANCH=$(git branch 2>&1 | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+	# Always recompute status; the old code reused a stale STAT from the
+	# previous repo when BRANCH was empty (e.g. a repo with no commits).
+	STAT=$(parse_git_dirty)
+	echo "[${BRANCH}${STAT}]"
 }
 #
-function parse_git_dirty () {
-	status=`git status 2>&1 | tee`
-	dirty=`echo -n "${status}" 2>&1  | grep "modified:" 2>&1 ; echo "$?"`
-	untracked=`echo -n "${status}" 2>&1  | grep "Untracked files" 2>&1 ; echo "$?"`
-	ahead=`echo -n "${status}" 2>&1  | grep "Your branch is ahead of" 2>&1 ; echo "$?"`
-	newfile=`echo -n "${status}" 2>&1  | grep "new file:" 2>&1 ; echo "$?"`
-	renamed=`echo -n "${status}" 2>&1  | grep "renamed:" 2>&1 ; echo "$?"`
-	deleted=`echo -n "${status}" 2>&1  | grep "deleted:" 2>&1 ; echo "$?"`
+parse_git_dirty () {
+	status=$(git status 2>&1)
 	bits=''
-	if [ "${renamed}" == "0" ]; then
-		bits=">${bits}"
-	fi
-	if [ "${ahead}" == "0" ]; then
-		bits="*${bits}"
-	fi
-	if [ "${newfile}" == "0" ]; then
-		bits="+${bits}"
-	fi
-	if [ "${untracked}" == "0" ]; then
-		bits="?${bits}"
-	fi
-	if [ "${deleted}" == "0" ]; then
-		bits="x${bits}"
-	fi
-	if [ "${dirty}" == "0" ]; then
-		bits="!${bits}"
-	fi
-	if [ ! "${bits}" == "" ]; then
+	printf '%s' "${status}" | grep -q "renamed:"               && bits=">${bits}"
+	printf '%s' "${status}" | grep -q "Your branch is ahead of" && bits="*${bits}"
+	printf '%s' "${status}" | grep -q "new file:"              && bits="+${bits}"
+	printf '%s' "${status}" | grep -q "Untracked files"        && bits="?${bits}"
+	printf '%s' "${status}" | grep -q "deleted:"               && bits="x${bits}"
+	printf '%s' "${status}" | grep -q "modified:"              && bits="!${bits}"
+	if [ -n "${bits}" ]; then
 		echo " ${bits}"
 	else
 		echo ""
 	fi
 }
 #
-function git_check () {
+git_check () {
 for dir in ./*/
-do 
+do
 	echo "git status of ${dir}"
-    cd ${dir}
-    [ $(echo $?) -eq 0 ] && echo "git fetching ${dir%*/}..." && git fetch
-    parse_git_branch
-    parse_git_dirty
-    git pull
-	cd ..
+	# Run each repo in a subshell so a failed cd can't leak into the next
+	# iteration and we never have to cd back out.
+	(
+		cd "${dir}" || exit 0
+		echo "git fetching ${dir%*/}..." && git fetch
+		parse_git_branch
+		parse_git_dirty
+		git pull
+	)
 done
 }
 git_check

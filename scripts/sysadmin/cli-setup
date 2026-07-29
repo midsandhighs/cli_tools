@@ -2,55 +2,74 @@
 
 # set -ex
 
-# Script for doing some preliminary setup for customizing a terminal environment
-# 
-# usage message for script if no opts ($0) passed 
-me=`basename "$0"`
+# Script for doing some preliminary setup for customizing a terminal environment.
+#
+# NOTE: must be run from scripts/sysadmin/ — the config paths below are relative.
+#
+# usage message for script if no opts ($0) passed
+me=$(basename "$0")
 usage () {
     echo "$0 [-t] triage [-c] cli [-h] home"
     echo "[----$me----]"
-    echo " triage: installs shells, tmux, vim"
-    echo " cli: shells, oh-my-zsh, tmux, vim, git, vundles"
-    echo " home: shells, oh-my-zsh, tmux, vim, git, vundles"
-    exit 1;
+    echo " triage: installs shells + tmux"
+    echo " cli:    installs shells, tmux, vim (+ Vundle), and git config"
+    echo " home:   not fully implemented yet (currently installs shells only)"
+    exit 1
 }
-if [[ ${#} -eq 0 ]]; then
+if [ $# -eq 0 ]; then
     usage
 fi
 # # # # # # #
+# Helpers
+# # # # # # #
+#
+# Copy SRC to DEST, backing up an existing DEST first so we never silently
+# clobber a config the user already has.
+install_file () {
+    src=$1
+    dest=$2
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        backup="$dest.bak.$(date +%Y%m%d%H%M%S)"
+        echo "Backing up existing $dest -> $backup"
+        cp -R "$dest" "$backup"
+    fi
+    cp -Rv "$src" "$dest"
+}
+# # # # # # #
 # Functions for setup steps
 # # # # # # #
-# 
+#
 # shells function
 shells () {
     echo 'Moving shell configurations'
-    cp -rv ../../configs/shells/bashprofile $HOME/.bash_profile
-    cp -rv ../../configs/shells/bashrc $HOME/.bashrc
-    cp -rv ../../configs/shells/zshrc $HOME/.zshrc
+    install_file ../../configs/shells/bashprofile "$HOME/.bash_profile"
+    install_file ../../configs/shells/bashrc "$HOME/.bashrc"
+    install_file ../../configs/shells/zshrc "$HOME/.zshrc"
 }
-# tmux function
-tmux () {
+# tmux function (named *_setup so it does not shadow the tmux binary)
+tmux_setup () {
     echo 'Moving tmux configurations'
-    cp -rv ../../configs/tools/tmux $HOME/.tmux.conf
+    install_file ../../configs/tools/tmux "$HOME/.tmux.conf"
 }
 # hammerspoon function
 hammerspoon () {
     echo 'Moving hammerspoon configurations'
-    cp -rv ../../configs/tools/hammerspoon $HOME/.hammerspoon/init.lua
+    mkdir -p "$HOME/.hammerspoon"
+    install_file ../../configs/tools/hammerspoon "$HOME/.hammerspoon/init.lua"
 }
-# # vim install function 
+# # vim install function
 vim_setup () {
     echo 'Setting up vim'
-    cp ../../configs/tools/vimrc $HOME/.vimrc
-    #  Verify Vundle exists, install if necessary, and upload Vundles in .vimrc
-    if [[ -d "$HOME/.vim/bundle" ]]; then
+    install_file ../../configs/tools/vimrc "$HOME/.vimrc"
+    #  Verify Vundle exists, install if necessary, and install Vundles from .vimrc
+    if [ -d "$HOME/.vim/bundle" ]; then
         echo 'Vundle folder exists!'
         vim +PluginInstall +qall
         echo 'Vundles updated.'
-    else    
+    else
         echo 'Vundle is not installed!'
-        echo 'Cloning Vundle.vim'  
-        git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+        echo 'Cloning Vundle.vim'
+        git clone https://github.com/gmarik/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
         echo 'Vundle Installed!'
         vim +PluginInstall +qall
         echo 'Vundles updated.'
@@ -58,18 +77,17 @@ vim_setup () {
 }
 git_config_setup () {
     echo 'Configuring git'
-    echo 'Copying top-level config'  
-    cp ../../configs/versioncontrol/gitconfig $HOME/.gitconfig
-    if [ -d $HOME/src/thd/ ]; 
-        then
+    echo 'Copying top-level config'
+    install_file ../../configs/versioncontrol/gitconfig "$HOME/.gitconfig"
+    if [ -d "$HOME/src/thd/" ]; then
         echo '/src/thd/ exists! This machine has THD repos'
         echo 'copying employer git configuration'
-        cp ../../configs/versioncontrol/gitconfig-thd $HOME/.gitconfig-thd
+        install_file ../../configs/versioncontrol/gitconfig-thd "$HOME/.gitconfig-thd"
         echo 'copying personal git configuration'
-        cp ../../configs/versioncontrol/gitconfig-mids $HOME/.gitconfig-mids
+        install_file ../../configs/versioncontrol/gitconfig-mids "$HOME/.gitconfig-mids"
     else
-        echo ' copying personal git configuation'
-        cp ../../configs/versioncontrol/gitconfig-mids $HOME/.gitconfig-mids
+        echo 'copying personal git configuration'
+        install_file ../../configs/versioncontrol/gitconfig-mids "$HOME/.gitconfig-mids"
     fi
 }
 # # # # # # #
@@ -80,17 +98,19 @@ while getopts "tch" arg; do
         t ) # run triage setup
             echo "Setting up triage cli - shells & tmux"
             shells
-            tmux
+            tmux_setup
             ;;
         c ) # run cli setup
-            echo "Setting up shells, tmux, and vim"
+            echo "Setting up shells, tmux, vim, and git"
             shells
-	        tmux
-	        vim_setup
+            tmux_setup
+            vim_setup
             git_config_setup
             ;;
         h ) # run home setup
-            shells;;
+            echo "Setting up home - shells only (not fully implemented)"
+            shells
+            ;;
         \? ) usage;;
     esac
 done
